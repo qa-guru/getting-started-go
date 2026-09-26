@@ -6,6 +6,7 @@ UI test demo with [playwright-go](https://github.com/mxschmitt/playwright-go): o
 
 ```bash
 go mod download
-go run github.com/mxschmitt/playwright-go/cmd/playwright install chromium
 go test -v
 ```
+
+The test installs the browser automatically on first run.
