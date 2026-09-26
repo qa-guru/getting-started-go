@@ -1,13 +1,13 @@
 package main
 
 import (
-	"strings"
 	"testing"
 	"time"
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/input"
 	"github.com/go-rod/rod/lib/launcher"
+	"github.com/stretchr/testify/require"
 )
 
 func TestSuccessfulSearch(t *testing.T) {
@@ -27,7 +27,5 @@ func TestSuccessfulSearch(t *testing.T) {
 		MustElement("[data-testid='results-list']").
 		MustText()
 
-	if !strings.Contains(results, "QA.GURU") {
-		t.Fatalf("expected search results to contain 'QA.GURU', got: %s", results)
-	}
+	require.Contains(t, results, "QA.GURU")
 }
