@@ -1,12 +1,16 @@
 # Getting started with Go UI tests
 
-UI test demo with [go-rod](https://github.com/go-rod/rod): opens GitHub search, searches for `qa.guru`, asserts results contain `QA.GURU`.
+Three ways to do the same UI test: open GitHub search, search for `qa.guru`, assert results contain `QA.GURU`.
+
+- `selenium_test.go` — [tebeka/selenium](https://github.com/tebeka/selenium) WebDriver client (needs `chromedriver` on PATH, e.g. `brew install chromedriver`)
+- `rod_test.go` — [go-rod](https://github.com/go-rod/rod), high-level Chrome DevTools Protocol client (auto-downloads browser)
+- `playwright_test.go` — [playwright-go](https://github.com/mxschmitt/playwright-go)
 
 ## Run
 
 ```bash
 go mod download
-go test -v
+go run github.com/mxschmitt/playwright-go/cmd/playwright install chromium
+go test -v                # all three
+go test -v -run TestRodSearch   # one
 ```
-
-Rod downloads a browser automatically on first run.

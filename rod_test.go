@@ -10,7 +10,7 @@ import (
 	"github.com/go-rod/rod/lib/launcher"
 )
 
-func TestSuccessfulSearch(t *testing.T) {
+func TestRodSearch(t *testing.T) {
 	browser := rod.New().
 		ControlURL(launcher.New().Headless(false).MustLaunch()).
 		MustConnect()
