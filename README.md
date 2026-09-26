@@ -4,13 +4,12 @@ Three ways to do the same UI test: open GitHub search, search for `qa.guru`, ass
 
 - `selenium_test.go` — [tebeka/selenium](https://github.com/tebeka/selenium) WebDriver client (needs `chromedriver` on PATH, e.g. `brew install chromedriver`)
 - `rod_test.go` — [go-rod](https://github.com/go-rod/rod), high-level Chrome DevTools Protocol client (auto-downloads browser)
-- `playwright_test.go` — [playwright-go](https://github.com/mxschmitt/playwright-go)
+- `playwright_test.go` — [playwright-go](https://github.com/mxschmitt/playwright-go) (auto-installs browser)
 
 ## Run
 
 ```bash
 go mod download
-go run github.com/mxschmitt/playwright-go/cmd/playwright install chromium
-go test -v                # all three
+go test -v                  # all three
 go test -v -run TestRodSearch   # one
 ```
